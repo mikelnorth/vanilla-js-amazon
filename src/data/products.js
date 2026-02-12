@@ -1,0 +1,501 @@
+export const products = [
+  {
+    id: 1,
+    name: "Wireless Bluetooth Headphones",
+    price: 79.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1678099940967-73fe30680949?w=400&h=400&fit=crop",
+    description:
+      "Premium noise-cancelling wireless headphones with 30-hour battery life. Features advanced Bluetooth 5.0 technology and superior sound quality with deep bass.",
+    category: "Electronics",
+    inStock: true,
+    discount: { originalPrice: 129.99, percentage: 38 },
+    badge: "Amazon's Choice",
+    prime: true,
+    ratings: { average: 4.5, count: 1253 },
+    reviews: [
+      {
+        id: 1,
+        author: "Sarah M.",
+        rating: 5,
+        title: "Best headphones I've ever owned!",
+        comment:
+          "The sound quality is incredible and the noise cancelling works perfectly. Battery life is exactly as advertised.",
+        date: "2026-01-15",
+        verified: true,
+        helpful: 342,
+      },
+      {
+        id: 2,
+        author: "Mike R.",
+        rating: 4,
+        title: "Great value for money",
+        comment:
+          "Really good headphones for the price. Only minor complaint is the ear cups could be slightly more comfortable.",
+        date: "2026-01-08",
+        verified: true,
+        helpful: 128,
+      },
+    ],
+    tags: [
+      "wireless",
+      "bluetooth",
+      "headphones",
+      "noise-cancelling",
+      "audio",
+      "music",
+    ],
+    sellerInfo: {
+      name: "TechSound Electronics",
+      rating: 4.7,
+      shipsFrom: "California, USA",
+    },
+  },
+  {
+    id: 2,
+    name: "Smart Watch Series 7",
+    price: 299.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1712764121254-d9867c694b81?w=400&h=400&fit=crop",
+    description:
+      "Advanced fitness tracking smartwatch with heart rate monitor, GPS, and water resistance up to 50m. Compatible with iOS and Android devices.",
+    category: "Electronics",
+    inStock: true,
+    discount: null,
+    badge: "Best Seller",
+    prime: true,
+    ratings: { average: 4.8, count: 2847 },
+    reviews: [
+      {
+        id: 1,
+        author: "Jennifer L.",
+        rating: 5,
+        title: "Perfect fitness companion",
+        comment:
+          "Tracks everything I need - steps, heart rate, sleep quality. The battery lasts about 3 days with regular use.",
+        date: "2026-02-05",
+        verified: true,
+        helpful: 567,
+      },
+      {
+        id: 2,
+        author: "Tom K.",
+        rating: 5,
+        title: "Worth every penny",
+        comment:
+          "Upgraded from Series 5 and the improvements are noticeable. GPS accuracy is excellent.",
+        date: "2026-01-28",
+        verified: true,
+        helpful: 234,
+      },
+    ],
+    tags: ["smartwatch", "fitness", "wearable", "health", "gps", "waterproof"],
+    sellerInfo: {
+      name: "WearableTech Pro",
+      rating: 4.9,
+      shipsFrom: "Texas, USA",
+    },
+  },
+  {
+    id: 3,
+    name: "Organic Cotton T-Shirt - Pack of 3",
+    price: 24.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1718913931807-4da5b5dd27fa?w=400&h=400&fit=crop",
+    description:
+      "Soft, breathable 100% organic cotton t-shirts. Available in black, white, and gray. Perfect for everyday wear with a comfortable fit.",
+    category: "Clothing",
+    inStock: true,
+    discount: { originalPrice: 39.99, percentage: 38 },
+    badge: "Limited Time Deal",
+    prime: true,
+    ratings: { average: 4.3, count: 892 },
+    reviews: [
+      {
+        id: 1,
+        author: "David P.",
+        rating: 4,
+        title: "Comfortable and well-made",
+        comment:
+          "The fabric is really soft. True to size. Would recommend washing before first wear.",
+        date: "2026-01-20",
+        verified: true,
+        helpful: 89,
+      },
+      {
+        id: 2,
+        author: "Lisa W.",
+        rating: 5,
+        title: "Great value pack",
+        comment:
+          "These are my go-to shirts now. They hold up well after multiple washes.",
+        date: "2026-01-12",
+        verified: true,
+        helpful: 56,
+      },
+    ],
+    tags: ["clothing", "t-shirt", "organic", "cotton", "casual", "basics"],
+    sellerInfo: {
+      name: "EcoWear Clothing",
+      rating: 4.5,
+      shipsFrom: "New York, USA",
+    },
+  },
+  {
+    id: 4,
+    name: "4K Ultra HD Action Camera",
+    price: 199.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1723662022098-b282d1e4ba57?w=400&h=400&fit=crop",
+    description:
+      "Capture stunning 4K video at 60fps with image stabilization. Waterproof up to 30m, includes mounting accessories and remote control.",
+    category: "Electronics",
+    inStock: true,
+    discount: { originalPrice: 279.99, percentage: 29 },
+    badge: "Amazon's Choice",
+    prime: true,
+    ratings: { average: 4.6, count: 1567 },
+    reviews: [
+      {
+        id: 1,
+        author: "Alex T.",
+        rating: 5,
+        title: "Amazing video quality!",
+        comment:
+          "Used this on my last diving trip and the footage is crystal clear. The stabilization is impressive.",
+        date: "2026-02-01",
+        verified: true,
+        helpful: 412,
+      },
+      {
+        id: 2,
+        author: "Rachel G.",
+        rating: 4,
+        title: "Great for the price",
+        comment:
+          "Excellent camera for beginners. Battery life could be better but overall very satisfied.",
+        date: "2026-01-22",
+        verified: true,
+        helpful: 178,
+      },
+    ],
+    tags: ["camera", "action-camera", "4k", "waterproof", "sports", "video"],
+    sellerInfo: {
+      name: "Adventure Cam Store",
+      rating: 4.8,
+      shipsFrom: "Washington, USA",
+    },
+  },
+  {
+    id: 5,
+    name: "Stainless Steel Water Bottle 32oz",
+    price: 18.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1664007549565-401a3220d12d?w=400&h=400&fit=crop",
+    description:
+      "Double-wall vacuum insulated water bottle keeps drinks cold for 24 hours or hot for 12 hours. BPA-free and leak-proof design.",
+    category: "Sports & Outdoors",
+    inStock: true,
+    discount: null,
+    badge: "Best Seller",
+    prime: true,
+    ratings: { average: 4.7, count: 3421 },
+    reviews: [
+      {
+        id: 1,
+        author: "Emma S.",
+        rating: 5,
+        title: "Keeps drinks cold all day!",
+        comment:
+          "I use this daily at work and the gym. Ice still in the bottle after 24 hours. No leaks at all.",
+        date: "2026-02-08",
+        verified: true,
+        helpful: 891,
+      },
+      {
+        id: 2,
+        author: "Chris B.",
+        rating: 5,
+        title: "Perfect size and quality",
+        comment:
+          "Fits perfectly in my car cup holder. Easy to clean and the insulation is legit.",
+        date: "2026-02-03",
+        verified: true,
+        helpful: 445,
+      },
+    ],
+    tags: [
+      "water-bottle",
+      "insulated",
+      "stainless-steel",
+      "sports",
+      "fitness",
+      "outdoor",
+    ],
+    sellerInfo: {
+      name: "HydroLife Essentials",
+      rating: 4.6,
+      shipsFrom: "Oregon, USA",
+    },
+  },
+  {
+    id: 6,
+    name: "Gaming Mechanical Keyboard RGB",
+    price: 89.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1679177183572-a4056053b8a2?w=400&h=400&fit=crop",
+    description:
+      "Professional gaming keyboard with Cherry MX switches, customizable RGB lighting, and programmable keys. Anti-ghosting technology for competitive gaming.",
+    category: "Electronics",
+    inStock: true,
+    discount: { originalPrice: 149.99, percentage: 40 },
+    badge: null,
+    prime: true,
+    ratings: { average: 4.4, count: 987 },
+    reviews: [
+      {
+        id: 1,
+        author: "Jake M.",
+        rating: 5,
+        title: "Perfect for gaming",
+        comment:
+          "The Cherry MX switches feel amazing. RGB customization is top-notch. Best keyboard I've owned.",
+        date: "2026-01-30",
+        verified: true,
+        helpful: 267,
+      },
+      {
+        id: 2,
+        author: "Amy L.",
+        rating: 4,
+        title: "Great keyboard, a bit loud",
+        comment:
+          "Love the responsiveness and build quality. Just be aware it's quite clicky if you have roommates!",
+        date: "2026-01-18",
+        verified: true,
+        helpful: 134,
+      },
+    ],
+    tags: [
+      "keyboard",
+      "gaming",
+      "mechanical",
+      "rgb",
+      "pc-gaming",
+      "peripherals",
+    ],
+    sellerInfo: {
+      name: "GameGear Pro",
+      rating: 4.7,
+      shipsFrom: "Nevada, USA",
+    },
+  },
+  {
+    id: 7,
+    name: "Yoga Mat with Carrying Strap",
+    price: 29.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1674675646706-8468e673b74a?w=400&h=400&fit=crop",
+    description:
+      "Extra thick 6mm yoga mat with non-slip surface. Made from eco-friendly TPE material. Includes carrying strap and storage bag.",
+    category: "Sports & Outdoors",
+    inStock: true,
+    discount: { originalPrice: 44.99, percentage: 33 },
+    badge: "Amazon's Choice",
+    prime: false,
+    ratings: { average: 4.5, count: 1876 },
+    reviews: [
+      {
+        id: 1,
+        author: "Nina P.",
+        rating: 5,
+        title: "Best yoga mat ever!",
+        comment:
+          "The thickness is perfect for my knees. Non-slip surface works great even when I'm sweaty.",
+        date: "2026-02-06",
+        verified: true,
+        helpful: 523,
+      },
+      {
+        id: 2,
+        author: "Mark D.",
+        rating: 4,
+        title: "Good quality mat",
+        comment:
+          "Very comfortable and easy to clean. The carrying strap is a nice bonus.",
+        date: "2026-01-25",
+        verified: true,
+        helpful: 201,
+      },
+    ],
+    tags: [
+      "yoga",
+      "fitness",
+      "exercise-mat",
+      "workout",
+      "pilates",
+      "eco-friendly",
+    ],
+    sellerInfo: {
+      name: "FitLife Essentials",
+      rating: 4.6,
+      shipsFrom: "Colorado, USA",
+    },
+  },
+  {
+    id: 8,
+    name: "Portable Phone Charger 20000mAh",
+    price: 34.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1761494495055-6077392f40a4?w=400&h=400&fit=crop",
+    description:
+      "High-capacity power bank with fast charging technology. Charges up to 3 devices simultaneously. LED display shows remaining battery percentage.",
+    category: "Electronics",
+    inStock: true,
+    discount: null,
+    badge: "Best Seller",
+    prime: true,
+    ratings: { average: 4.6, count: 2134 },
+    reviews: [
+      {
+        id: 1,
+        author: "Brian K.",
+        rating: 5,
+        title: "Charges my phone 4 times!",
+        comment:
+          "This thing is a lifesaver when traveling. Fast charging works perfectly and the LED display is accurate.",
+        date: "2026-02-07",
+        verified: true,
+        helpful: 678,
+      },
+      {
+        id: 2,
+        author: "Sofia R.",
+        rating: 5,
+        title: "Great capacity",
+        comment:
+          "Can charge my phone and tablet at the same time. Highly recommend for anyone who travels.",
+        date: "2026-01-29",
+        verified: true,
+        helpful: 312,
+      },
+    ],
+    tags: [
+      "power-bank",
+      "charger",
+      "portable",
+      "battery",
+      "fast-charging",
+      "mobile",
+    ],
+    sellerInfo: {
+      name: "PowerUp Electronics",
+      rating: 4.8,
+      shipsFrom: "Florida, USA",
+    },
+  },
+  {
+    id: 9,
+    name: "Leather Laptop Backpack",
+    price: 69.99,
+    image:
+      "https://plus.unsplash.com/premium_photo-1661404158848-d5764b204883?w=400&h=400&fit=crop",
+    description:
+      "Premium leather laptop backpack with padded compartment for up to 15.6-inch laptops. Multiple pockets for organization and USB charging port.",
+    category: "Bags & Luggage",
+    inStock: false,
+    discount: { originalPrice: 99.99, percentage: 30 },
+    badge: "Limited Time Deal",
+    prime: true,
+    ratings: { average: 4.4, count: 743 },
+    reviews: [
+      {
+        id: 1,
+        author: "Kevin H.",
+        rating: 5,
+        title: "Stylish and functional",
+        comment:
+          "Perfect for work. Fits my 15-inch laptop with room for documents. The USB port is super convenient.",
+        date: "2026-01-26",
+        verified: true,
+        helpful: 189,
+      },
+      {
+        id: 2,
+        author: "Jessica T.",
+        rating: 4,
+        title: "Great quality leather",
+        comment:
+          "Beautiful backpack with lots of pockets. A bit heavy when fully loaded but the quality is excellent.",
+        date: "2026-01-14",
+        verified: true,
+        helpful: 97,
+      },
+    ],
+    tags: [
+      "backpack",
+      "laptop-bag",
+      "leather",
+      "business",
+      "travel",
+      "usb-charging",
+    ],
+    sellerInfo: {
+      name: "UrbanCarry Goods",
+      rating: 4.5,
+      shipsFrom: "Illinois, USA",
+    },
+  },
+  {
+    id: 10,
+    name: "Instant Pot Multi-Cooker 6Qt",
+    price: 89.99,
+    image:
+      "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=400&h=400&fit=crop",
+    description:
+      "7-in-1 programmable pressure cooker: pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker, and warmer. Perfect for quick and healthy meals.",
+    category: "Home & Kitchen",
+    inStock: true,
+    discount: { originalPrice: 119.99, percentage: 25 },
+    badge: "Best Seller",
+    prime: true,
+    ratings: { average: 4.7, count: 4523 },
+    reviews: [
+      {
+        id: 1,
+        author: "Patricia M.",
+        rating: 5,
+        title: "Life changing appliance!",
+        comment:
+          "I use this almost every day. Makes meal prep so much easier. The rice cooker function alone is worth it.",
+        date: "2026-02-09",
+        verified: true,
+        helpful: 1234,
+      },
+      {
+        id: 2,
+        author: "Robert W.",
+        rating: 5,
+        title: "Best purchase this year",
+        comment:
+          "Cooks everything perfectly. The pressure cooking saves so much time. Highly recommend!",
+        date: "2026-02-02",
+        verified: true,
+        helpful: 891,
+      },
+    ],
+    tags: [
+      "instant-pot",
+      "pressure-cooker",
+      "kitchen",
+      "cooking",
+      "appliances",
+      "multi-cooker",
+    ],
+    sellerInfo: {
+      name: "Kitchen Essentials Plus",
+      rating: 4.9,
+      shipsFrom: "Georgia, USA",
+    },
+  },
+];

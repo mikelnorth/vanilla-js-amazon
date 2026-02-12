@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Header & Navigation */
+  --color-amazon-header: #131921;
+  --color-amazon-subnav: #232f3e;
+  --color-amazon-nav-secondary: #37475a;
+
+  /* Buttons */
+  --color-amazon-yellow: #ffd814;
+  --color-amazon-yellow-hover: #f7ca00;
+  --color-amazon-search: #febd69;
+
+  /* Orange accents */
+  --color-amazon-orange: #ff9900;
+  --color-amazon-star: #ffa41c;
+  --color-amazon-cart-orange: #f08804;
+  --color-amazon-dark-orange: #c45500;
+
+  /* Text */
+  --color-amazon-text: #0f1111;
+  --color-amazon-text-secondary: #565959;
+  --color-amazon-text-tertiary: #cccccc;
+
+  /* Links */
+  --color-amazon-link: #007185;
+  --color-amazon-link-blue: #2162a1;
+
+  /* Badges & Deals */
+  --color-amazon-deal-red: #cc0c39;
+  --color-amazon-success: #007600;
+
+  /* Backgrounds */
+  --color-amazon-gray: #f2f2f2;
+  --color-amazon-white: #ffffff;
+}
+
+/*
+  Nav sprite icon classes.
+  Sprite: /images/nav-sprite.png (350x450)
+  Usage: <span class="nav-sprite nav-logo"></span>
+*/
+.nav-sprite {
+  display: inline-block;
+  background-image: url("/images/nav-sprite.png");
+  background-repeat: no-repeat;
+}
+
+/* "amazon" logo — matches Amazon's .nav-logo-base (1x sprite) */
+.nav-logo {
+  width: 76px;
+  height: 27px;
+  background-position: -10px -90px;
+}
+
+/* Search magnifying glass — matches Amazon's .nav-search-submit-text */
+.nav-search-icon {
+  width: 45px;
+  height: 40px;
+  background-position: 2px -280px;
+}
+
+/* Cart icon — matches Amazon's .nav-cart-icon */
+.nav-cart {
+  width: 38px;
+  height: 26px;
+  background-position: -10px -340px;
+}
+
+/* Hamburger menu — matches Amazon's .hm-icon */
+.nav-hamburger {
+  width: 17px;
+  height: 14px;
+  background-position: -172px -255px;
+}
+
+/* Location pin icon — matches Amazon's .nav-packard-glow-loc-icon */
+.nav-location {
+  width: 15px;
+  height: 18px;
+  background-position: -71px -378px;
+}
+
+/* Body layout for sticky footer */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app {
+  flex: 1;
+}
