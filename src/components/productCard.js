@@ -51,7 +51,10 @@ export function productCard(product) {
       data-product-id="${product.id}"
     >
       ${renderBadge(product.badge)}
-      <a href="/src/pages/product/?id=${product.id}" class="block">
+      <a
+        href="${import.meta.env.BASE_URL}src/pages/product/?id=${product.id}"
+        class="block"
+      >
         <img
           src="${product.image}"
           alt="${product.name}"
@@ -59,7 +62,7 @@ export function productCard(product) {
         />
       </a>
       <a
-        href="/src/pages/product/?id=${product.id}"
+        href="${import.meta.env.BASE_URL}src/pages/product/?id=${product.id}"
         class="text-amazon-link hover:text-amazon-dark-orange text-sm leading-tight line-clamp-2"
       >
         ${product.name}

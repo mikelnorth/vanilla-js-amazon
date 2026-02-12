@@ -23,7 +23,7 @@ export function renderCartItems(cart, checkout) {
       <div class="text-center py-12">
         <p class="text-amazon-text-secondary text-lg">Your cart is empty</p>
         <a
-          href="/src/pages/home/"
+          href="${import.meta.env.BASE_URL}src/pages/home/"
           class="text-amazon-link hover:text-amazon-dark-orange mt-4 inline-block"
         >
           Continue Shopping
@@ -72,7 +72,10 @@ export function renderCartItems(cart, checkout) {
 
               <!-- Product Image -->
               <div class="shrink-0">
-                <a href="/src/pages/product/?id=${item.id}">
+                <a
+                  href="${import.meta.env
+                    .BASE_URL}src/pages/product/?id=${item.id}"
+                >
                   <img
                     src="${item.image}"
                     alt="${item.name}"
@@ -86,7 +89,8 @@ export function renderCartItems(cart, checkout) {
                 <!-- Title and Badge -->
                 <div>
                   <a
-                    href="/src/pages/product/?id=${item.id}"
+                    href="${import.meta.env
+                      .BASE_URL}src/pages/product/?id=${item.id}"
                     class="text-amazon-link hover:text-amazon-dark-orange font-normal text-base leading-tight"
                   >
                     ${item.name}

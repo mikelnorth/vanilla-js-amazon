@@ -46,13 +46,13 @@ function renderProduct(product) {
       <!-- Breadcrumb -->
       <div class="text-xs mb-4">
         <a
-          href="/src/pages/home/"
+          href="${import.meta.env.BASE_URL}src/pages/home/"
           class="text-amazon-link hover:text-amazon-dark-orange"
           >Home</a
         >
         <span class="mx-2">&gt;</span>
         <a
-          href="/src/pages/home/"
+          href="${import.meta.env.BASE_URL}src/pages/home/"
           class="text-amazon-link hover:text-amazon-dark-orange"
           >${product.category}</a
         >
@@ -282,7 +282,7 @@ function setupProductListeners(product) {
       if (!cart.items[product.id]) {
         cart.addItem(product);
       }
-      window.location.href = `/src/pages/checkout/?buyNow=${product.id}`;
+      window.location.href = `${import.meta.env.BASE_URL}src/pages/checkout/?buyNow=${product.id}`;
     });
   }
 }
@@ -313,7 +313,7 @@ if (product) {
         The product you're looking for doesn't exist.
       </p>
       <a
-        href="/"
+        href="${import.meta.env.BASE_URL}"
         class="inline-block bg-amazon-yellow hover:bg-amazon-yellow-hover text-amazon-text font-medium py-2 px-6 rounded-full"
       >
         Continue Shopping

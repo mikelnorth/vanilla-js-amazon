@@ -55,7 +55,7 @@ export function renderHeader() {
     "bg-amazon-header text-white px-6 py-3 flex items-center gap-6";
 
   header.innerHTML = html`
-    <a href="/" class="flex items-center">
+    <a href="${import.meta.env.BASE_URL}" class="flex items-center">
       <span class="nav-sprite nav-logo"></span>
     </a>
     <div class="flex items-center justify-between w-full gap-6">
@@ -79,9 +79,13 @@ export function renderHeader() {
         />
       </div>
       <nav class="flex items-center gap-6">
-        <a href="/src/pages/home/" class="hover:text-amazon-search">Products</a>
         <a
-          href="/src/pages/checkout/"
+          href="${import.meta.env.BASE_URL}src/pages/home/"
+          class="hover:text-amazon-search"
+          >Products</a
+        >
+        <a
+          href="${import.meta.env.BASE_URL}src/pages/checkout/"
           class="hover:text-amazon-search flex items-end "
         >
           <div class="relative w-[38px] h-[26px]">

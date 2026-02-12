@@ -6,7 +6,9 @@ export function renderSubHeader() {
     "bg-amazon-subnav text-white px-6 py-3 flex items-center gap-6";
   subHeader.innerHTML = html`
     <div class="flex items-center gap-6">
-      <a href="/" class="hover:text-amazon-search">Products</a>
+      <a href="${import.meta.env.BASE_URL}" class="hover:text-amazon-search"
+        >Products</a
+      >
     </div>
   `;
   document.body.prepend(subHeader);

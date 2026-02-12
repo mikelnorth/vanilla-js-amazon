@@ -223,7 +223,7 @@ function renderSuccessView() {
         shortly.
       </p>
       <a
-        href="/src/pages/home/"
+        href="${import.meta.env.BASE_URL}src/pages/home/"
         class="inline-block bg-amazon-yellow hover:bg-amazon-yellow-hover text-amazon-text text-sm font-medium py-2 px-6 rounded-full"
       >
         Continue Shopping
