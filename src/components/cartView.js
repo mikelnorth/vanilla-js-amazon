@@ -1,3 +1,5 @@
+import { formatPrice, perUnit } from "../utils/currency.js";
+
 const html = String.raw;
 
 function getDeliveryDate() {
@@ -225,18 +227,18 @@ export function renderCartItems(cart, checkout) {
                     </div>`
                   : ""}
                 <div class="text-2xl font-bold text-amazon-text">
-                  $${item.price.toFixed(2)}
+                  ${formatPrice(item.price)}
                 </div>
                 ${item.discount
                   ? html`<div class="text-xs text-amazon-text-secondary mt-1">
                       List:
                       <span class="line-through"
-                        >$${item.discount.originalPrice.toFixed(2)}</span
+                        >${formatPrice(item.discount.originalPrice)}</span
                       >
                     </div>`
                   : ""}
                 <div class="text-xs text-amazon-text-secondary mt-1">
-                  ($${(item.price / item.quantity).toFixed(2)} / count)
+                  (${formatPrice(perUnit(item.price, item.quantity))} / count)
                 </div>
               </div>
             </div>
@@ -251,7 +253,7 @@ export function renderCartItems(cart, checkout) {
         Subtotal (${checkout.getSelectedCount(cart)}
         ${checkout.getSelectedCount(cart) === 1 ? "item" : "items"}):
         <span class="font-bold text-amazon-text text-2xl ml-2">
-          $${checkout.getSelectedTotal(cart).toFixed(2)}
+          ${formatPrice(checkout.getSelectedTotal(cart))}
         </span>
       </span>
     </div>

@@ -1,6 +1,7 @@
 import { initApp } from "../../app.js";
 import cart from "../../state/cart.js";
 import checkout from "../../state/checkout.js";
+import { formatPrice } from "../../utils/currency.js";
 import { renderCartItems } from "../../components/cartView.js";
 
 const html = String.raw;
@@ -80,7 +81,7 @@ function renderCartSummary() {
 
     <div class="text-lg mb-4">
       Subtotal (${itemCount} ${itemCount === 1 ? "item" : "items"}):
-      <span class="font-bold text-amazon-text">$${total.toFixed(2)}</span>
+      <span class="font-bold text-amazon-text">${formatPrice(total)}</span>
     </div>
 
     <button
@@ -136,7 +137,7 @@ function renderReviewView() {
                   </div>
                   <div class="shrink-0 text-right">
                     <div class="text-lg font-bold text-amazon-text">
-                      $${item.price.toFixed(2)}
+                      ${formatPrice(item.price)}
                     </div>
                   </div>
                 </div>
@@ -166,7 +167,7 @@ function renderReviewView() {
             <div class="text-sm space-y-2">
               <div class="flex justify-between">
                 <span>Items (${itemCount}):</span>
-                <span>$${total.toFixed(2)}</span>
+                <span>${formatPrice(total)}</span>
               </div>
               <div class="flex justify-between">
                 <span>Shipping &amp; handling:</span>
@@ -176,7 +177,7 @@ function renderReviewView() {
                 class="border-t border-gray-300 pt-2 flex justify-between font-bold text-lg text-amazon-deal-red"
               >
                 <span>Order total:</span>
-                <span>$${total.toFixed(2)}</span>
+                <span>${formatPrice(total)}</span>
               </div>
             </div>
 
@@ -273,6 +274,7 @@ function setupCheckoutListeners() {
 
     // Back to cart
     if (e.target.id === "back-to-cart" || e.target.closest("#back-to-cart")) {
+      checkout.syncWithCart(cart);
       checkout.currentView = "cart";
       render();
       return;
@@ -349,6 +351,7 @@ const buyNowId = parseInt(urlParams.get("buyNow"));
 
 if (buyNowId && cart.items[buyNowId]) {
   checkout.init(cart);
+  1;
   checkout.deselectAll();
   checkout.toggle(buyNowId);
   checkout.currentView = "review";

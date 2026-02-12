@@ -1,5 +1,5 @@
 import { getAddress } from "../utils/location.js";
-import { locationStorage, cartStorage } from "../utils/storage.js";
+import { locationStorage } from "../utils/storage.js";
 
 const html = String.raw;
 
@@ -100,16 +100,6 @@ export function renderHeader() {
   `;
 
   document.body.prepend(header);
-
-  // Initialize cart count from localStorage
-  const savedCart = cartStorage.get();
-  if (savedCart) {
-    const count = Object.values(savedCart).reduce(
-      (total, item) => total + item.quantity,
-      0
-    );
-    updateCartCount(count);
-  }
 
   // Load location
   loadLocation();

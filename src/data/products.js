@@ -2,14 +2,14 @@ export const products = [
   {
     id: 1,
     name: "Wireless Bluetooth Headphones",
-    price: 79.99,
+    price: 7999,
     image:
       "https://plus.unsplash.com/premium_photo-1678099940967-73fe30680949?w=400&h=400&fit=crop",
     description:
       "Premium noise-cancelling wireless headphones with 30-hour battery life. Features advanced Bluetooth 5.0 technology and superior sound quality with deep bass.",
     category: "Electronics",
     inStock: true,
-    discount: { originalPrice: 129.99, percentage: 38 },
+    discount: { originalPrice: 12999, percentage: 38 },
     badge: "Amazon's Choice",
     prime: true,
     ratings: { average: 4.5, count: 1253 },
@@ -54,7 +54,7 @@ export const products = [
   {
     id: 2,
     name: "Smart Watch Series 7",
-    price: 299.99,
+    price: 29999,
     image:
       "https://plus.unsplash.com/premium_photo-1712764121254-d9867c694b81?w=400&h=400&fit=crop",
     description:
@@ -99,14 +99,14 @@ export const products = [
   {
     id: 3,
     name: "Organic Cotton T-Shirt - Pack of 3",
-    price: 24.99,
+    price: 2499,
     image:
       "https://plus.unsplash.com/premium_photo-1718913931807-4da5b5dd27fa?w=400&h=400&fit=crop",
     description:
       "Soft, breathable 100% organic cotton t-shirts. Available in black, white, and gray. Perfect for everyday wear with a comfortable fit.",
     category: "Clothing",
     inStock: true,
-    discount: { originalPrice: 39.99, percentage: 38 },
+    discount: { originalPrice: 3999, percentage: 38 },
     badge: "Limited Time Deal",
     prime: true,
     ratings: { average: 4.3, count: 892 },
@@ -144,14 +144,14 @@ export const products = [
   {
     id: 4,
     name: "4K Ultra HD Action Camera",
-    price: 199.99,
+    price: 19999,
     image:
       "https://plus.unsplash.com/premium_photo-1723662022098-b282d1e4ba57?w=400&h=400&fit=crop",
     description:
       "Capture stunning 4K video at 60fps with image stabilization. Waterproof up to 30m, includes mounting accessories and remote control.",
     category: "Electronics",
     inStock: true,
-    discount: { originalPrice: 279.99, percentage: 29 },
+    discount: { originalPrice: 27999, percentage: 29 },
     badge: "Amazon's Choice",
     prime: true,
     ratings: { average: 4.6, count: 1567 },
@@ -189,7 +189,7 @@ export const products = [
   {
     id: 5,
     name: "Stainless Steel Water Bottle 32oz",
-    price: 18.99,
+    price: 1899,
     image:
       "https://plus.unsplash.com/premium_photo-1664007549565-401a3220d12d?w=400&h=400&fit=crop",
     description:
@@ -241,14 +241,14 @@ export const products = [
   {
     id: 6,
     name: "Gaming Mechanical Keyboard RGB",
-    price: 89.99,
+    price: 8999,
     image:
       "https://plus.unsplash.com/premium_photo-1679177183572-a4056053b8a2?w=400&h=400&fit=crop",
     description:
       "Professional gaming keyboard with Cherry MX switches, customizable RGB lighting, and programmable keys. Anti-ghosting technology for competitive gaming.",
     category: "Electronics",
     inStock: true,
-    discount: { originalPrice: 149.99, percentage: 40 },
+    discount: { originalPrice: 14999, percentage: 40 },
     badge: null,
     prime: true,
     ratings: { average: 4.4, count: 987 },
@@ -293,14 +293,14 @@ export const products = [
   {
     id: 7,
     name: "Yoga Mat with Carrying Strap",
-    price: 29.99,
+    price: 2999,
     image:
       "https://plus.unsplash.com/premium_photo-1674675646706-8468e673b74a?w=400&h=400&fit=crop",
     description:
       "Extra thick 6mm yoga mat with non-slip surface. Made from eco-friendly TPE material. Includes carrying strap and storage bag.",
     category: "Sports & Outdoors",
     inStock: true,
-    discount: { originalPrice: 44.99, percentage: 33 },
+    discount: { originalPrice: 4499, percentage: 33 },
     badge: "Amazon's Choice",
     prime: false,
     ratings: { average: 4.5, count: 1876 },
@@ -345,7 +345,7 @@ export const products = [
   {
     id: 8,
     name: "Portable Phone Charger 20000mAh",
-    price: 34.99,
+    price: 3499,
     image:
       "https://plus.unsplash.com/premium_photo-1761494495055-6077392f40a4?w=400&h=400&fit=crop",
     description:
@@ -397,14 +397,14 @@ export const products = [
   {
     id: 9,
     name: "Leather Laptop Backpack",
-    price: 69.99,
+    price: 6999,
     image:
       "https://plus.unsplash.com/premium_photo-1661404158848-d5764b204883?w=400&h=400&fit=crop",
     description:
       "Premium leather laptop backpack with padded compartment for up to 15.6-inch laptops. Multiple pockets for organization and USB charging port.",
     category: "Bags & Luggage",
     inStock: false,
-    discount: { originalPrice: 99.99, percentage: 30 },
+    discount: { originalPrice: 9999, percentage: 30 },
     badge: "Limited Time Deal",
     prime: true,
     ratings: { average: 4.4, count: 743 },
@@ -449,14 +449,14 @@ export const products = [
   {
     id: 10,
     name: "Instant Pot Multi-Cooker 6Qt",
-    price: 89.99,
+    price: 8999,
     image:
       "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=400&h=400&fit=crop",
     description:
       "7-in-1 programmable pressure cooker: pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker, and warmer. Perfect for quick and healthy meals.",
     category: "Home & Kitchen",
     inStock: true,
-    discount: { originalPrice: 119.99, percentage: 25 },
+    discount: { originalPrice: 11999, percentage: 25 },
     badge: "Best Seller",
     prime: true,
     ratings: { average: 4.7, count: 4523 },

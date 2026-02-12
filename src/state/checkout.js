@@ -4,9 +4,7 @@ const checkout = {
 
   // Select all current cart item IDs
   init(cart) {
-    this.selectedIds = new Set(
-      cart.getItems().map((item) => item.id),
-    );
+    this.selectedIds = new Set(cart.getItems().map((item) => item.id));
     this.currentView = "cart";
   },
 
@@ -21,9 +19,7 @@ const checkout = {
 
   // Select all cart items
   selectAll(cart) {
-    this.selectedIds = new Set(
-      cart.getItems().map((item) => item.id),
-    );
+    this.selectedIds = new Set(cart.getItems().map((item) => item.id));
   },
 
   // Deselect all items
@@ -41,7 +37,7 @@ const checkout = {
     return cart.getItems().filter((item) => this.selectedIds.has(item.id));
   },
 
-  // Get total price of selected items
+  // Get total price of selected items in cents
   getSelectedTotal(cart) {
     return this.getSelectedItems(cart).reduce(
       (total, item) => total + item.price * item.quantity,

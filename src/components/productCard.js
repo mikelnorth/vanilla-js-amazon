@@ -1,13 +1,7 @@
-const html = String.raw;
+import { formatPrice } from "../utils/currency.js";
+import { renderStars } from "../utils/ui.js";
 
-function renderStars(average) {
-  const fullStars = Math.floor(average);
-  const hasHalf = average % 1 >= 0.5;
-  let stars = "";
-  for (let i = 0; i < fullStars; i++) stars += "&#9733;";
-  if (hasHalf) stars += "&#9734;";
-  return stars;
-}
+const html = String.raw;
 
 function renderBadge(badge) {
   if (!badge) return "";
@@ -17,7 +11,9 @@ function renderBadge(badge) {
     "Limited Time Deal": "bg-amazon-deal-red",
   };
   const bg = colors[badge] || "bg-amazon-subnav";
-  return html`<span class="${bg} text-white text-xs font-bold px-2 py-1 rounded-sm">
+  return html`<span
+    class="${bg} text-white text-xs font-bold px-2 py-1 rounded-sm"
+  >
     ${badge}
   </span>`;
 }
@@ -30,20 +26,20 @@ function renderPrice(product) {
           -${product.discount.percentage}%
         </span>
         <span class="text-2xl font-bold text-amazon-text">
-          $${product.price.toFixed(2)}
+          ${formatPrice(product.price)}
         </span>
       </div>
       <div class="text-sm text-amazon-text-secondary">
         List:
         <span class="line-through">
-          $${product.discount.originalPrice.toFixed(2)}
+          ${formatPrice(product.discount.originalPrice)}
         </span>
       </div>
     `;
   }
   return html`
     <span class="text-2xl font-bold text-amazon-text">
-      $${product.price.toFixed(2)}
+      ${formatPrice(product.price)}
     </span>
   `;
 }
@@ -62,18 +58,27 @@ export function productCard(product) {
           class="w-full h-48 object-contain"
         />
       </a>
-      <a href="/src/pages/product/?id=${product.id}" class="text-amazon-link hover:text-amazon-dark-orange text-sm leading-tight line-clamp-2">
+      <a
+        href="/src/pages/product/?id=${product.id}"
+        class="text-amazon-link hover:text-amazon-dark-orange text-sm leading-tight line-clamp-2"
+      >
         ${product.name}
       </a>
       <div class="flex items-center gap-1">
-        <span class="text-amazon-star text-sm">${renderStars(product.ratings.average)}</span>
+        <span class="text-amazon-star text-sm"
+          >${renderStars(product.ratings.average)}</span
+        >
         <span class="text-amazon-link-blue text-xs">
           ${product.ratings.count.toLocaleString()}
         </span>
       </div>
       <div>${renderPrice(product)}</div>
-      ${product.prime ? html`<span class="text-amazon-link text-xs font-bold">Prime</span>` : ""}
-      ${product.inStock ? html`<span class="text-amazon-success text-xs">In Stock</span>` : html`<span class="text-amazon-deal-red text-xs">Out of Stock</span>`}
+      ${product.prime
+        ? html`<span class="text-amazon-link text-xs font-bold">Prime</span>`
+        : ""}
+      ${product.inStock
+        ? html`<span class="text-amazon-success text-xs">In Stock</span>`
+        : html`<span class="text-amazon-deal-red text-xs">Out of Stock</span>`}
       <button
         class="mt-auto bg-amazon-yellow hover:bg-amazon-yellow-hover text-amazon-text text-sm font-medium py-2 px-4 rounded-full cursor-pointer"
         data-product-id="${product.id}"

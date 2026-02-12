@@ -44,7 +44,7 @@ const cart = {
     );
   },
 
-  // Get total price
+  // Get total price in cents
   getTotal() {
     return Object.values(this.items).reduce(
       (total, item) => total + item.price * item.quantity,
