@@ -2,8 +2,8 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 
-export default defineConfig({
-  base: "/vanilla-js-amazon/",
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/vanilla-js-amazon/" : "/",
   plugins: [tailwindcss()],
   build: {
     rollupOptions: {
@@ -15,4 +15,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
