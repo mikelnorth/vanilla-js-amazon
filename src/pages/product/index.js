@@ -1,10 +1,8 @@
-import { initApp } from "../../app.js";
+import { initApp, html } from "../../app.js";
 import { products } from "../../data/products.js";
 import cart from "../../state/cart.js";
 import { formatPrice, splitPrice } from "../../utils/currency.js";
 import { renderStars } from "../../utils/ui.js";
-
-const html = String.raw;
 
 function renderReviews(reviews) {
   return reviews
@@ -52,7 +50,10 @@ function renderProduct(product) {
         >
         <span class="mx-2">&gt;</span>
         <a
-          href="${import.meta.env.BASE_URL}src/pages/home/"
+          href="${import.meta.env
+            .BASE_URL}src/pages/home/?category=${encodeURIComponent(
+            product.category,
+          )}"
           class="text-amazon-link hover:text-amazon-dark-orange"
           >${product.category}</a
         >

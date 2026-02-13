@@ -1,10 +1,8 @@
-import { initApp } from "../../app.js";
+import { initApp, html } from "../../app.js";
 import cart from "../../state/cart.js";
 import checkout from "../../state/checkout.js";
 import { formatPrice } from "../../utils/currency.js";
 import { renderCartItems } from "../../components/cartView.js";
-
-const html = String.raw;
 
 function render() {
   switch (checkout.currentView) {

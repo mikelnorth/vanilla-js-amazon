@@ -1,6 +1,5 @@
+import { html } from "../app.js";
 import { formatPrice, perUnit } from "../utils/currency.js";
-
-const html = String.raw;
 
 function getDeliveryDate() {
   const date = new Date();

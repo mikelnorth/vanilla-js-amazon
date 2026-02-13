@@ -45,6 +45,7 @@ export const products = [
       "audio",
       "music",
     ],
+    keywords: ["headphones", "wireless", "bluetooth", "audio", "music", "earphones", "headset", "noise cancelling", "bass", "sound"],
     sellerInfo: {
       name: "TechSound Electronics",
       rating: 4.7,
@@ -90,6 +91,7 @@ export const products = [
       },
     ],
     tags: ["smartwatch", "fitness", "wearable", "health", "gps", "waterproof"],
+    keywords: ["smartwatch", "watch", "fitness tracker", "health monitor", "gps", "waterproof", "heart rate", "activity tracker", "wearable"],
     sellerInfo: {
       name: "WearableTech Pro",
       rating: 4.9,
@@ -135,6 +137,7 @@ export const products = [
       },
     ],
     tags: ["clothing", "t-shirt", "organic", "cotton", "casual", "basics"],
+    keywords: ["t-shirt", "tshirt", "shirt", "clothing", "cotton", "organic", "casual", "basics", "apparel", "men", "women"],
     sellerInfo: {
       name: "EcoWear Clothing",
       rating: 4.5,
@@ -180,6 +183,7 @@ export const products = [
       },
     ],
     tags: ["camera", "action-camera", "4k", "waterproof", "sports", "video"],
+    keywords: ["camera", "action camera", "gopro", "4k", "video", "waterproof", "sports camera", "underwater", "diving", "adventure"],
     sellerInfo: {
       name: "Adventure Cam Store",
       rating: 4.8,
@@ -232,6 +236,7 @@ export const products = [
       "fitness",
       "outdoor",
     ],
+    keywords: ["water bottle", "bottle", "hydration", "insulated", "thermos", "flask", "sports", "gym", "hiking", "cold", "hot"],
     sellerInfo: {
       name: "HydroLife Essentials",
       rating: 4.6,
@@ -284,6 +289,7 @@ export const products = [
       "pc-gaming",
       "peripherals",
     ],
+    keywords: ["keyboard", "gaming keyboard", "mechanical keyboard", "rgb", "gaming", "pc", "computer", "cherry mx", "gaming gear", "peripherals"],
     sellerInfo: {
       name: "GameGear Pro",
       rating: 4.7,
@@ -336,6 +342,7 @@ export const products = [
       "pilates",
       "eco-friendly",
     ],
+    keywords: ["yoga mat", "exercise mat", "yoga", "fitness", "workout", "pilates", "gym mat", "stretching", "meditation", "non-slip"],
     sellerInfo: {
       name: "FitLife Essentials",
       rating: 4.6,

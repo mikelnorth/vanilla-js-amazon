@@ -1,20 +1,49 @@
-import { initApp } from "../../app.js";
+import { initApp, html } from "../../app.js";
 import { products } from "../../data/products.js";
 import { productCard } from "../../components/productCard.js";
 import cart from "../../state/cart.js";
+import { renderSubHeader } from "../../components/subHeader.js";
 
-const html = String.raw;
+function filterProducts(currentProducts) {
+  let filteredProducts = currentProducts || [];
+  const category = new URLSearchParams(window.location.search).get("category");
+  const search = new URLSearchParams(window.location.search).get("search");
 
-function renderProducts(currentProducts = products) {
+  if (category) {
+    filteredProducts = filteredProducts.filter(
+      (product) => product.category === category,
+    );
+  }
+
+  if (search) {
+    const searchLower = search.toLowerCase();
+    filteredProducts = filteredProducts.filter((product) => {
+      // Search in product name
+      const nameMatch = product.name.toLowerCase().includes(searchLower);
+
+      // Search in keywords array (if it exists)
+      const keywordsMatch = product.keywords?.some((keyword) =>
+        keyword.toLowerCase().includes(searchLower),
+      );
+
+      return nameMatch || keywordsMatch;
+    });
+  }
+
+  return filteredProducts;
+}
+
+export function renderProducts(currentProducts = products) {
   const app = document.getElementById("app");
   app.className = "bg-amazon-gray";
 
+  const filteredProducts = filterProducts(currentProducts);
   app.innerHTML = html`
     <div
       id="products-grid"
       class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
     >
-      ${currentProducts.map((product) => productCard(product)).join("")}
+      ${filteredProducts.map((product) => productCard(product)).join("")}
     </div>
   `;
 }
@@ -48,5 +77,11 @@ function setupCartListeners() {
 }
 
 initApp();
+renderSubHeader();
 renderProducts();
 setupCartListeners();
+
+// Listen for search updates from header
+window.addEventListener("searchUpdate", () => {
+  renderProducts();
+});

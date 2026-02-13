@@ -1,23 +1,17 @@
+import { html } from "../app.js";
 import { getAddress } from "../utils/location.js";
 import { locationStorage } from "../utils/storage.js";
+import {
+  getAllTags,
+  filterMatchingTags,
+  renderDropdownItems,
+  updateSearchUrl,
+  getSearchValueFromUrl,
+  showDropdown,
+  hideDropdown,
+} from "./headerUtils.js";
 
-const html = String.raw;
-
-export function updateCartCount(count) {
-  const cartCountEl = document.getElementById("cart-count");
-  if (!cartCountEl) return;
-
-  cartCountEl.textContent = count;
-
-  // Adjust font size for double digits
-  if (count >= 10) {
-    cartCountEl.classList.remove("text-base");
-    cartCountEl.classList.add("text-sm");
-  } else {
-    cartCountEl.classList.remove("text-sm");
-    cartCountEl.classList.add("text-base");
-  }
-}
+// ===== Location Management =====
 
 function loadLocation(forceRefresh = false) {
   const el = document.getElementById("header-location");
@@ -49,7 +43,159 @@ function loadLocation(forceRefresh = false) {
     });
 }
 
+// ===== Cart Management =====
+
+export function updateCartCount(count) {
+  const cartCountEl = document.getElementById("cart-count");
+  if (!cartCountEl) return;
+
+  cartCountEl.textContent = count;
+
+  // Adjust font size for double digits
+  if (count >= 10) {
+    cartCountEl.classList.remove("text-base");
+    cartCountEl.classList.add("text-sm");
+  } else {
+    cartCountEl.classList.remove("text-sm");
+    cartCountEl.classList.add("text-base");
+  }
+}
+
+// ===== Event Handler Functions =====
+
+function handleSearchInput(e, autocompleteDropdown, allTags) {
+  const searchValue = e.target.value.trim();
+  
+  // Update URL and trigger search
+  updateSearchUrl(searchValue);
+
+  // Show autocomplete suggestions
+  if (searchValue.length > 0) {
+    const matchingTags = filterMatchingTags(searchValue, allTags);
+
+    if (matchingTags.length > 0) {
+      autocompleteDropdown.innerHTML = renderDropdownItems(matchingTags);
+      showDropdown(autocompleteDropdown);
+    } else {
+      hideDropdown(autocompleteDropdown);
+    }
+  } else {
+    hideDropdown(autocompleteDropdown);
+  }
+}
+
+function handleDropdownClick(e, searchInput, autocompleteDropdown) {
+  const tagElement = e.target.closest("[data-tag]");
+  if (!tagElement) return;
+
+  const tag = tagElement.dataset.tag;
+  searchInput.value = tag;
+  hideDropdown(autocompleteDropdown);
+
+  // Update URL and trigger search
+  updateSearchUrl(tag);
+}
+
+function handleClickOutside(e, searchInput, autocompleteDropdown) {
+  if (
+    !searchInput.contains(e.target) &&
+    !autocompleteDropdown.contains(e.target)
+  ) {
+    hideDropdown(autocompleteDropdown);
+  }
+}
+
+function handleSearchFocus(e, autocompleteDropdown, allTags) {
+  const searchValue = e.target.value.trim();
+  
+  if (searchValue.length > 0) {
+    const matchingTags = filterMatchingTags(searchValue, allTags);
+
+    if (matchingTags.length > 0) {
+      autocompleteDropdown.innerHTML = renderDropdownItems(matchingTags);
+      showDropdown(autocompleteDropdown);
+    }
+  }
+}
+
+function handleKeyboardNavigation(e, autocompleteDropdown) {
+  const items = autocompleteDropdown.querySelectorAll("[data-tag]");
+  if (items.length === 0) return;
+
+  const currentActive = autocompleteDropdown.querySelector(".bg-gray-200");
+  let currentIndex = -1;
+
+  if (currentActive) {
+    currentIndex = Array.from(items).indexOf(currentActive);
+  }
+
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    const nextIndex = Math.min(currentIndex + 1, items.length - 1);
+    items.forEach((item) => item.classList.remove("bg-gray-200"));
+    items[nextIndex]?.classList.add("bg-gray-200");
+    items[nextIndex]?.scrollIntoView({ block: "nearest" });
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    const prevIndex = Math.max(currentIndex - 1, 0);
+    items.forEach((item) => item.classList.remove("bg-gray-200"));
+    items[prevIndex]?.classList.add("bg-gray-200");
+    items[prevIndex]?.scrollIntoView({ block: "nearest" });
+  } else if (e.key === "Enter" && currentActive) {
+    e.preventDefault();
+    currentActive.click();
+  } else if (e.key === "Escape") {
+    hideDropdown(autocompleteDropdown);
+  }
+}
+
+function handleLocationClick() {
+  loadLocation(true);
+}
+
+// ===== Setup Event Listeners =====
+
+function setupEventListeners() {
+  const searchInput = document.getElementById("search-input");
+  const autocompleteDropdown = document.getElementById("autocomplete-dropdown");
+  const locationEl = document.getElementById("header-location");
+  const allTags = getAllTags();
+
+  // Search input events
+  if (searchInput && autocompleteDropdown) {
+    searchInput.addEventListener("input", (e) =>
+      handleSearchInput(e, autocompleteDropdown, allTags)
+    );
+
+    searchInput.addEventListener("focus", (e) =>
+      handleSearchFocus(e, autocompleteDropdown, allTags)
+    );
+
+    searchInput.addEventListener("keydown", (e) =>
+      handleKeyboardNavigation(e, autocompleteDropdown)
+    );
+
+    // Dropdown events
+    autocompleteDropdown.addEventListener("click", (e) =>
+      handleDropdownClick(e, searchInput, autocompleteDropdown)
+    );
+
+    // Click outside to close dropdown
+    document.addEventListener("click", (e) =>
+      handleClickOutside(e, searchInput, autocompleteDropdown)
+    );
+  }
+
+  // Location click event
+  if (locationEl) {
+    locationEl.addEventListener("click", handleLocationClick);
+  }
+}
+
+// ===== Main Render Function =====
+
 export function renderHeader() {
+  const searchValue = getSearchValueFromUrl();
   const header = document.createElement("header");
   header.className =
     "bg-amazon-header text-white px-6 py-3 flex items-center gap-6";
@@ -71,12 +217,18 @@ export function renderHeader() {
           </div>
         </div>
       </div>
-      <div class="w-full">
+      <div class="w-full relative">
         <input
           type="text"
+          id="search-input"
           placeholder="Search Amazon"
           class="bg-white rounded-md p-2 w-full text-amazon-text placeholder:text-amazon-text-secondary"
+          value="${searchValue || ""}"
         />
+        <div
+          id="autocomplete-dropdown"
+          class="absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-b-md shadow-lg max-h-60 overflow-y-auto z-50 hidden"
+        ></div>
       </div>
       <nav class="flex items-center gap-6">
         <a
@@ -105,14 +257,9 @@ export function renderHeader() {
 
   document.body.prepend(header);
 
-  // Load location
+  // Initialize location
   loadLocation();
 
-  // Add click handler to re-prompt for location
-  const locationEl = document.getElementById("header-location");
-  if (locationEl) {
-    locationEl.addEventListener("click", () => {
-      loadLocation(true); // Force refresh to re-prompt for location
-    });
-  }
+  // Setup all event listeners
+  setupEventListeners();
 }

@@ -1,7 +1,6 @@
+import { html } from "../app.js";
 import { formatPrice } from "../utils/currency.js";
 import { renderStars } from "../utils/ui.js";
-
-const html = String.raw;
 
 function renderBadge(badge) {
   if (!badge) return "";

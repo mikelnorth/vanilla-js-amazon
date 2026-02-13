@@ -1,4 +1,4 @@
-const html = String.raw;
+import { html } from "../app.js";
 
 export function renderFooter() {
   const footer = document.createElement("footer");
